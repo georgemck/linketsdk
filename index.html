@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<style>
+    body {
+        margin-left: 3em;
+        margin-top: 5em;
+    }
+
+    pre,
+    code {
+        font-family: monospace, monospace;
+    }
+
+    pre {
+        overflow: auto;
+    }
+
+    pre>code {
+        display: block;
+        padding: 1rem;
+        font-size: small;
+        word-wrap: normal;
+    }
+
+    p {
+        width: 50%;
+        text-align: justify;
+    }
+
+    figcaption {
+        font-weight: bold;
+    }
+
+    code {
+        background: gold;
+        width: 70%;
+    }
+</style>
+
+<body>
+
+
+    <h1>
+        Creating a Linket for [ Flowers ]
+    </h1>
+    <p>
+        The Javascript code for <button id="linketButton">[ Flowers ]</button>
+        uses the HTML5 Fetch
+        method which is available in all web browsers. You can read more about it here:
+    </p>
+
+
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">Fetch API on
+        Mozilla</a>
+    </p>
+    <p>
+        In this case, it will simply redirect the browser. For launching mobile apps, documentation is forthcoming.
+    </p>
+    <br>
+
+    <figure>
+        <figcaption>HTML5 Code for button</figcaption>
+        <p>
+            * be sure to remove both spaces from "< " and "< /" for the button tag  
+        </p>
+        <pre>
+            <code contenteditable spellcheck="false">
+              < button id="linketButton">[ Flowers ]< /button>
+            </code>
+        </pre>
+    </figure>
+
+    <figure>
+        <figcaption>Javascript Code for button</figcaption><br>
+        <p>
+            This code waits for the DOM to be ready and then finds the element named linketButton, which is our button.
+            It attaches a click event listener so that it retrieves the actionable linket destination upon every click
+            and then sends the web browser to that destination.
+        </p>
+        <pre>
+            <code contenteditable spellcheck="false">
+window.addEventListener('DOMContentLoaded', (event) => {
+    document.getElementById('linketButton').addEventListener("click", function () {
+        fetch(
+                "https://e18inyvxpe.execute-api.us-east-1.amazonaws.com/linket_backend?command=getLinket&linket=[Flowers]"
+            )
+            .then(response => response.json())
+            .then(json => window.location.href = json[0].value.appid)
+            .catch(err => console.log(err));
+    }, false);
+});
+            </code>
+        </pre>
+    </figure>
+
+
+
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('linketButton').addEventListener("click", function () {
+                fetch(
+                        "https://e18inyvxpe.execute-api.us-east-1.amazonaws.com/linket_backend?command=getLinket&linket=[Flowers]"
+                    )
+                    .then(response => response.json())
+                    .then(json => window.location.href = json[0].value.appid)
+                    .catch(err => console.log(err));
+            }, false);
+        });
+    </script>
+
+</body>
+
+</html>
