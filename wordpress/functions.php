@@ -94,7 +94,17 @@ function wpb_hook_javascript()
         }
         var linkerserver = "https://e18inyvxpe.execute-api.us-east-1.amazonaws.com/linket_backend";
         window.addEventListener('DOMContentLoaded', (event) => {
-            google = {};
+            if(document.getElementById('linketButton')){
+                document.getElementById('linketButton').addEventListener("click", function(){
+                fetch("https://e18inyvxpe.execute-api.us-east-1.amazonaws.com/linket_backend?command=getLinket&linket= "[Flowers]")
+                    .then(response => response.json())
+                        .then(json => window.location.href= json[0].value.appid )
+                    .catch(err => console.log(err));}
+                , false);
+
+            }
+            
+            
             const divs = document.querySelectorAll('.linketgroup');
             divs.forEach(el => el.addEventListener('click', event => {
                 submitButton(event.target.innerText);
