@@ -3,6 +3,7 @@
 /**
  * This should go in the functions.php of the Theme's child, otherwise in the functions.php of the WordPress Theme. 
  * Note this will be added to every page, but can be limited to specific pages if desired
+ * The code in this repository is covered by applicable patents. http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&u=%2Fnetahtml%2FPTO%2Fsearch-adv.htm&r=1&p=1&f=G&l=50&d=PTXT&S1=boudville.INNM.&OS=in/boudville&RS=IN/boudville
  */
 
 
